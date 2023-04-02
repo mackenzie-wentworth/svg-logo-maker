@@ -1,4 +1,4 @@
-# indicates which folders and files Git should ignore
+# Indicates which folders and files Git should ignore
 node_modules
 package-lock.json
 .vscode
