@@ -4,36 +4,9 @@ const inquirer = require('inquirer');
 const Shape = require('./lib/shapes');
 const {generateShape} = require('./lib/generateShape');
 const Svg = require('./lib/svg');
-const { inherits } = require('util');
-
-// Array of question prompts that run in the terminal using inquirer for the user to respond to and generate logo data
-const questions = [
-        {
-            type: "input",
-            message: "LOGO TEXT: Please enter up to (3) characters to be displayed on your logo:",
-            name: "text",
-        },
-        {
-            type: "input",
-            name: "text-color",
-            message: "TEXT COLOR: Please enter a text color keyword (OR a hexadecimal number):",
-        },
-        {
-            type: "list",
-            message: "LOGO SHAPE: Please choose which shape you would like to use for your logo:",
-            name: "shape-type",
-            choices: ["Circle", "Square", "Triangle"],
-        },
-        {
-            type: "input",
-            name: "shape-color",
-            message: "SHAPE COLOR: Please enter a shape color keyword (OR a hexadecimal number):",
-        },
-
-    ];
+const {Questions} = require("./lib/questions");
 
 // TODO: Create function to write to logo.svg file using 'writeToFile'
-// TODO: Create function to initialize app by generating logo.svg file under 'dist' folder using 'init()'
 function writeToFile(fileName, data) {
     console.log("Writing" + data +  "to" + fileName + "file!")
     fs.writeFile(fileName, data, function (err) {
@@ -45,6 +18,7 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function that returns a promise to asynchronously handle user input from QUESTIONS prompt
+// Include function to initialize app by generating logo.svg file under 'dist' folder using 'init()'
 // Include function to generate NEW SVG pixel image with template literals
 // Include function that generates NEW SVG pixel image to url in browser
 async function init() {
@@ -57,10 +31,9 @@ async function init() {
         var shape_type_input = " ";
         var shape_color_input = " ";
         
-        const answers = inquirer.prompt(questions);
+        const answers = inquirer.prompt(Questions);
     })
     
-
     .then((res) => {
         if (answers.text.length > 0 && answers.text.length < 4) {
             text_input = answers.text;
@@ -97,7 +70,6 @@ async function init() {
         console.log("Writing shape to file...");
         return writeToFile(svg_file, svg_image_created); 
     })
-
     .catch((err) => console.log("Unable to generate svg pixel image"));
 }
 
