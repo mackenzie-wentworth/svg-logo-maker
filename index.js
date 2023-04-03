@@ -30,15 +30,36 @@ const questions = [
 
     ];
 
-    function writeToFile(fileName, data) {
-        console.log("Writing" + data +  "to" + fileName + "file!")
-        fs.writeFile(fileName, data, function (err) {
-            if (err) {
-                return console.log(err);
-            }
-            console.log("Success! Please see the 'dist' folder for the logo.svg file you just created!");
-        });
-    }
+// TODO: Create function to write to logo.svg file using 'writeToFile'
+// TODO: Create function to initialize app by generating logo.svg file under 'dist' folder using 'init()'
+function writeToFile(fileName, data) {
+    console.log("Writing" + data +  "to" + fileName + "file!")
+    fs.writeFile(fileName, data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Success! Please see the 'dist' folder for the logo.svg file you just created!");
+     });
+}
+
+// TODO: Create a function that returns a promise to asynchronously handle user input from QUESTIONS prompt
+// Include function to generate NEW SVG pixel image with template literals
+// Include function that generates NEW SVG pixel image to url in browser
+    const asyncRequest = () => 
+
+// TODO: Function CALL to initialize logo.svg app to browser
+
+
+
+
+
+
+
+
+
+
+
+
 
     // function init() {
     //     inquirer.prompt(questions)
