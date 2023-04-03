@@ -1,7 +1,7 @@
 // Runs the application using imports from lib/
 const fs = require('fs');
 const inquirer = require('inquirer');
-const Shape = require('./lib/shapes');
+const {Square, Circle, Triangle} = require('./lib/shapes');
 const {generateShape} = require('./lib/generateShape');
 const Svg = require('./lib/svg');
 const {Questions} = require("./lib/questions");
@@ -28,7 +28,7 @@ async function init() {
         var svg_file = "logo.svg";
         var text_input = " ";
         var font_color_input = " ";
-        var shape_type_input = " ";
+        var shape_input = " ";
         var shape_color_input = " ";
         
         const answers = inquirer.prompt(Questions);
@@ -52,11 +52,11 @@ async function init() {
         console.log("Shape color input: [" + shape_color_input + "]");
     })
     .then((res) => {
-        shape_type_input = answers["pixel-image"];
-        console.log("Shape input = [" + shape_type_input + "]");
+        shape_input = answers["pixel-image"];
+        console.log("Shape input = [" + shape_input + "]");
     })
     .then((res) => {
-        let userShape = generateShape(shape_type_input, shape_color_input);
+        let userShape = generateShape(shape_input, shape_color_input);
 
         const print = new Svg(
             svg.setTextElement(text_input, font_color_input),
@@ -70,7 +70,7 @@ async function init() {
         console.log("Writing shape to file...");
         return writeToFile(svg_file, svg_image_created); 
     })
-    .catch((err) => console.log("Unable to generate svg pixel image"));
+    .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image"));
 }
 
 // TODO: Function CALL to initialize logo.svg app to browser
