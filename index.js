@@ -22,23 +22,25 @@ function writeToFile(fileName, data) {
 // Include function to generate NEW SVG pixel image with template literals
 // Include function that generates NEW SVG pixel image to url in browser
 async function init() {
+    var svg_image_created = " ";
+    var svg_file = "logo.svg";
+    var text_input = " ";
+    var font_color_input = " ";
+    var shape_input = " ";
+    var shape_color_input = " ";
+
     return new Promise ((resolve, reject) => {
         console.log("Beginning init process");
-        var svg_image_created = " ";
-        var svg_file = "logo.svg";
-        var text_input = " ";
-        var font_color_input = " ";
-        var shape_input = " ";
-        var shape_color_input = " ";
         
         const answers = inquirer.prompt(Questions);
+        return writeToFile(svg_file, svg_image_created); 
     })
     
     .then((res) => {
         if (answers.text.length > 0 && answers.text.length < 4) {
             text_input = answers.text;
         } else {
-            console.log("Invalid input text field detected! Please enter 1-3 Characters, no more and no less");
+            console.log("Invalid input! Please enter 1-3 Characters, no more and no less");
             return;
         }
         console.log("Text input: [" + text_input + "]");
@@ -52,7 +54,7 @@ async function init() {
         console.log("Shape color input: [" + shape_color_input + "]");
     })
     .then((res) => {
-        shape_input = answers["pixel-image"];
+        shape_input = answers["shape-type"];
         console.log("Shape input = [" + shape_input + "]");
     })
     .then((res) => {
@@ -68,10 +70,10 @@ async function init() {
 
         console.log("Shape generation complete!");
         console.log("Writing shape to file...");
-        return writeToFile(svg_file, svg_image_created); 
     })
     .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image"));
 }
+
 
 // TODO: Function CALL to initialize logo.svg app to browser
 init();
