@@ -3,6 +3,8 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const Shape = require('./lib/shapes');
 const {generateShape} = require('./lib/generateShape');
+const Svg = require('./lib/svg');
+const { inherits } = require('util');
 
 // Array of question prompts that run in the terminal using inquirer for the user to respond to and generate logo data
 const questions = [
@@ -45,32 +47,19 @@ function writeToFile(fileName, data) {
 // TODO: Create a function that returns a promise to asynchronously handle user input from QUESTIONS prompt
 // Include function to generate NEW SVG pixel image with template literals
 // Include function that generates NEW SVG pixel image to url in browser
-    const asyncRequest = () => 
+async function init() {
+    return new Promise ((resolve, reject) => {
+        console.log("Beginning init process");
+        const answers = inquirer.prompt(questions);
+
+        if (answers.text.length > 0 && answers.text.length < 4) {
+            text_input = answers.text;
+        } else {
+            console.log("Invalid input text field detected! Please enter 1-3 Characters, no more and no less");
+            return;
+        }
+    })
+}
 
 // TODO: Function CALL to initialize logo.svg app to browser
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // function init() {
-    //     inquirer.prompt(questions)
-    //         .then((data) => {
-    //             const filename = './dist/logo.svg';
-
-    //             fs.writeToFile(filename, (err) =>
-    //             err ? console.log(err) : console.log('Success! Please see the "dist" folder for the logo.svg file you just created!')
-    //             );
-    //         });
-    // }
-
-    // Function call to initialize SVG logo app
-    // init();
+init();
