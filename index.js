@@ -75,7 +75,7 @@ async function init() {
         return writeToFile(svg_file, svg_image_created);
     })
 
-    .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image,", err));
+    .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image", err));
 }
 
 
