@@ -28,7 +28,7 @@ async function init() {
     var font_color_input = " ";
     var shape_input = " ";
     var shape_color_input = " ";
-
+    
     return new Promise ((resolve, reject) => {
         console.log("Beginning init process");
         
@@ -50,12 +50,12 @@ async function init() {
 	    console.log("Font color input: [" + font_color_input + "]");
     })
     .then((res) => {
-        shape_color_input = answers.shape;
-        console.log("Shape color input: [" + shape_color_input + "]");
-    })
-    .then((res) => {
         shape_input = answers["shape-type"];
         console.log("Shape input = [" + shape_input + "]");
+    })
+    .then((res) => {
+        shape_color_input = answers.shape;
+        console.log("Shape color input: [" + shape_color_input + "]");
     })
     .then((res) => {
         let userShape = generateShape(shape_input, shape_color_input);
@@ -71,6 +71,7 @@ async function init() {
         console.log("Shape generation complete!");
         console.log("Writing shape to file...");
     })
+    
     .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image"));
 }
 
