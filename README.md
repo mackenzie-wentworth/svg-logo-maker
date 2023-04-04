@@ -82,6 +82,11 @@ After you've installed all necessary packages, you are now ready to start creati
 
 ### *Video Demonstration:*
 
+### *SVG Shape Logo Example:*
+The following image demonstrates an example of the logo style you can create using the SVG Shape Logo Maker: 
+
+![An image to demonstrate where in GitHub to click the green "code" button to copy SSH URL.](./assets/images/svg_mockup.png)
+
 
 ### *Want To Add More Effects To Your SVG Logo?:*
 If you'd like to add more features to your logo, please visit the following resource: 
