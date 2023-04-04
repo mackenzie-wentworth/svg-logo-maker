@@ -1,7 +1,7 @@
 # SVG Shape Logo Maker
 
 ## Link to GitHub Repository: 
-To view the GitHub repository for "SVG Shape Logo Maker", please visit the following link: 
+To view the GitHub repository for "SVG Shape Logo Maker", please visit the following link: https://github.com/mackenzie-wentworth/svg-logo-maker
 
 
 ## Description
@@ -24,7 +24,7 @@ This project also uses the software packages: **Node Package Manager**, **Inquir
 ### *Steps to Set Up Environment:*
 1. From within the "SVG Shape Logo Maker" respository on GitHub, click the "Code" button and copy the `SSH URL` to your clipboard.
 
-    ![An image to demonstrate where in GitHub to click the green "code" button to copy SSH URL.](./assets/images/copy-ssh-url.png)
+    ![An image to demonstrate where in GitHub to click the green "code" button to copy SSH URL.](./assets/images/copy-logo-maker-ssh.png)
 
 2. Using the command line in your terminal, type the following `git clone` command and paste the `SSH URL` you just copied:  
 
@@ -63,6 +63,9 @@ After you've installed all necessary packages, you are now ready to start creati
     ```bash
         npm run test
     ```
+    >**NOTE**: Your terminal should return the following:
+    ![An image to demonstrate where in GitHub to click the green "code" button to copy SSH URL.](./assets/images/svglogo-jest-test.png)
+
 3. Once you've verified that all tests return `PASS` and green in the terminal, next right-click on the `index.js` file from the directory menu to 'open in integrated terminal.' This will put you in the right file path to run the proceeding `node.js` commands.
 
 4. In the terminal, type the following `node.js` command:
