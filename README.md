@@ -64,7 +64,7 @@ After you've installed all necessary packages, you are now ready to start creati
         npm run test
     ```
     >**NOTE**: Your terminal should return the following:
-    ![An image to demonstrate where in GitHub to click the green "code" button to copy SSH URL.](./assets/images/svglogo-jest-test.png)
+    ![An image to demonstrate when your terminal passes all tests correctly.](./assets/images/svglogo-jest-test.png)
 
 3. Once you've verified that all tests return `PASS` and green in the terminal, next right-click on the `index.js` file from the directory menu to 'open in integrated terminal.' This will put you in the right file path to run the proceeding `node.js` commands.
 
@@ -81,12 +81,12 @@ After you've installed all necessary packages, you are now ready to start creati
 6. Once you've answered all prompts in the terminal, click on the `logo.svg` file within the directory menu to view your new generated logo.
 
 ### *Video Demonstration:*
-[svglogo_demo-video.webm](https://user-images.githubusercontent.com/122484637/229916628-d07fb780-b10a-48ae-b8b0-f74d885fe7de.webm)
+[Watch demo video here!](https://user-images.githubusercontent.com/122484637/229916628-d07fb780-b10a-48ae-b8b0-f74d885fe7de.webm)
 
 ### *SVG Shape Logo Example:*
 The following image demonstrates an example of the logo style you can create using the SVG Shape Logo Maker: 
 
-![An image to demonstrate where in GitHub to click the green "code" button to copy SSH URL.](./assets/images/svg_mockup.png)
+![An image of an SVG logo example using the SVG Shape Logo Maker.](./assets/images/svg_mockup.png)
 
 
 ### *Want To Add More Effects To Your SVG Logo?:*
