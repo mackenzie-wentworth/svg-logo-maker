@@ -81,6 +81,7 @@ After you've installed all necessary packages, you are now ready to start creati
 6. Once you've answered all prompts in the terminal, click on the `logo.svg` file within the directory menu to view your new generated logo.
 
 ### *Video Demonstration:*
+[svglogo_demo-video.webm](https://user-images.githubusercontent.com/122484637/229916628-d07fb780-b10a-48ae-b8b0-f74d885fe7de.webm)
 
 ### *SVG Shape Logo Example:*
 The following image demonstrates an example of the logo style you can create using the SVG Shape Logo Maker: 
