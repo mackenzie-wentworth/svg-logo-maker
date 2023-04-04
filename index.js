@@ -6,21 +6,19 @@ const {generateShape} = require('./lib/generateShape');
 const Svg = require('./lib/svg');
 const {Questions} = require("./lib/questions");
 
-// TODO: Create function to write to logo.svg file using 'writeToFile'
+// Function to write to logo.svg file using 'writeToFile'
 function writeToFile(fileName, data) {
-    console.log("Writing" + data +  "to" + fileName + "file!")
+    console.log("Writing " + [data] + "to" + [fileName] + "file!")
+
     fs.writeFile(fileName, data, function (err) {
         if (err) {
             return console.log(err);
         }
-        console.log("Success! Please see the 'dist' folder for the logo.svg file you just created!");
+        console.log("Success! Please see the 'logo.svg' file for the new logo shape you just created!");
      });
 }
 
-// TODO: Create a function that returns a promise to asynchronously handle user input from QUESTIONS prompt
-// Include function to initialize app by generating logo.svg file under 'dist' folder using 'init()'
-// Include function to generate NEW SVG pixel image with template literals
-// Include function that generates NEW SVG pixel image to url in browser
+// Async function init() that returns a promise to handle user input from inquirer Questions prompts and initialize logo.svg image to app
 async function init() {
     var svg_image_created = " ";
     var svg_file = "logo.svg";
@@ -28,14 +26,9 @@ async function init() {
     var font_color_input = " ";
     var shape_input = " ";
     var shape_color_input = " ";
-    
-    // return new Promise ((resolve, reject) => {
-    //     console.log("Beginning init process");
-        
-       inquirer.prompt(Questions)
-        // return writeToFile(svg_file, svg_image_created); 
-    // })
-    
+     
+    inquirer.prompt(Questions)
+
     .then((answers) => {
         if (answers.text.length > 0 && answers.text.length < 4) {
             text_input = answers.text;
@@ -44,33 +37,27 @@ async function init() {
             return;
         }
         console.log("Text input: [" + text_input + "]");
-    // })
-    // .then((res) => {
+
         font_color_input = answers["text-color"];
 	    console.log("Font color input: [" + font_color_input + "]");
-    // })
-    // .then((res) => {
+
         shape_input = answers["shape-type"];
         console.log("Shape input = [" + shape_input + "]");
-    // })
-    // .then((res) => {
+
         shape_color_input = answers["shape-color"];
         console.log("Shape color input: [" + shape_color_input + "]");
-    // })
-    // .then((res) => {
+
         let userShape = generateShape(shape_input, shape_color_input);
+
 
         const svg = new Svg();
         svg.setTextElement(text_input, font_color_input);
         svg.setShapeElement(userShape)
         svg_image_created = svg.render();
 
-
-
-
         console.log("Displaying shape:\n\n" + svg_image_created);
 
-        console.log("Shape generation complete!");
+        console.log("Logo shape generation complete!");
         console.log("Writing shape to file...");
         return writeToFile(svg_file, svg_image_created);
     })
@@ -78,6 +65,5 @@ async function init() {
     .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image", err));
 }
 
-
-// TODO: Function CALL to initialize logo.svg app to browser
+// Function call to initialize logo.svg app
 init();
