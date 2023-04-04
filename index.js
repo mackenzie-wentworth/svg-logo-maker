@@ -29,14 +29,14 @@ async function init() {
     var shape_input = " ";
     var shape_color_input = " ";
     
-    return new Promise ((resolve, reject) => {
-        console.log("Beginning init process");
+    // return new Promise ((resolve, reject) => {
+    //     console.log("Beginning init process");
         
-        const answers = inquirer.prompt(Questions);
-        return writeToFile(svg_file, svg_image_created); 
-    })
+       inquirer.prompt(Questions)
+        // return writeToFile(svg_file, svg_image_created); 
+    // })
     
-    .then((res) => {
+    .then((answers) => {
         if (answers.text.length > 0 && answers.text.length < 4) {
             text_input = answers.text;
         } else {
@@ -44,35 +44,38 @@ async function init() {
             return;
         }
         console.log("Text input: [" + text_input + "]");
-    })
-    .then((res) => {
+    // })
+    // .then((res) => {
         font_color_input = answers["text-color"];
 	    console.log("Font color input: [" + font_color_input + "]");
-    })
-    .then((res) => {
+    // })
+    // .then((res) => {
         shape_input = answers["shape-type"];
         console.log("Shape input = [" + shape_input + "]");
-    })
-    .then((res) => {
-        shape_color_input = answers.shape;
+    // })
+    // .then((res) => {
+        shape_color_input = answers["shape-color"];
         console.log("Shape color input: [" + shape_color_input + "]");
-    })
-    .then((res) => {
+    // })
+    // .then((res) => {
         let userShape = generateShape(shape_input, shape_color_input);
 
-        const print = new Svg(
-            svg.setTextElement(text_input, font_color_input),
-            svg.setShapeElement(userShape),
-        );
+        const svg = new Svg();
+        svg.setTextElement(text_input, font_color_input);
+        svg.setShapeElement(userShape)
         svg_image_created = svg.render();
+
+
+
 
         console.log("Displaying shape:\n\n" + svg_image_created);
 
         console.log("Shape generation complete!");
         console.log("Writing shape to file...");
+        return writeToFile(svg_file, svg_image_created);
     })
-    
-    .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image"));
+
+    .catch((err) => console.log("Unable to generate logo.svg file and svg pixel image,", err));
 }
 
 
