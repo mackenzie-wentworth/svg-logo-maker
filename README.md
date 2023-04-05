@@ -7,7 +7,7 @@ To view the GitHub repository for "SVG Shape Logo Maker", please visit the follo
 ## Description
 Need help creating a logo for your project, brand, or profile? With this *SVG Shape Logo Maker*, you can quickly generate a clean and simple logo by following a series of prompts to pick the shape, colors, and text that you desire through the command line. 
 
-Please continue to the following sections for instructions to use the SVG Shape Logo maker so that you can generate your own logo in `.svg` format. Let's get started!
+Please continue to the following sections for instructions to use the SVG Shape Logo Maker so that you can generate your own logo in `.svg` format. Let's get started!
 
 ---
 
@@ -58,7 +58,7 @@ After you've installed all necessary packages, you are now ready to start creati
 ### *How to Use SVG Shape Logo Maker:*
 1. In VS Code, right-click on the `shapes.test.js` file from the directory menu to 'open in integrated terminal.'
 
-2. In the terminal, type the following `npm` command to execute `Jest` unit testing so that we can verify the application is functioning correctly:
+2. In the terminal, type the following `npm` command to execute `Jest` unit testing so that you can verify the application is functioning correctly:
 
     ```bash
         npm run test
@@ -90,7 +90,7 @@ The following image demonstrates an example of the logo style you can create usi
 
 
 ### *Want To Add More Effects To Your SVG Logo?:*
-If you'd like to add more features to your logo, please visit the following resource: 
+If you'd like to add more features to your logo, please visit the following resource for further guidance: 
 * MDN Web Docs - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial
 
 ---
